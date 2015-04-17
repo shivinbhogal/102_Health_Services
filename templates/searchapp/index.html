@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+{% extends 'base.html' %}
+
+{% load static %}
+{% block body_block %}
+	        {% if doctors %}
+            <script type="text/javascript">var doc_list=[]</script>
+                {% for doctor in doctors %}
+                    <script type="text/javascript">doc_list.push("{{doctor.name}}");</script>
+                {% endfor %}
+            {% else %}
+                No doctors exist!
+            {% endif %}
+            {% if doctors %}
+            <script type="text/javascript">speciality_list=[];</script>
+                {% for types in speciality %}
+                    <script type="text/javascript">speciality_list.push("{{types.type}}");</script>
+                {% endfor %}
+            {% else %}
+                No doctors exist!
+            {% endif %}
+		<nav class="navbar navbar-default navbar-fixed-top">
+		  	<div class="container-fluid">
+		    	<div class="navbar-header page-scroll">
+		    		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span> 
+			        </button>
+		      		<a class="navbar-brand page-scroll" href="#page-top"><img src="{% static "images/logo.png" %}" width="100" height="50"></a>
+		    	</div>
+			    <div class="collapse navbar-collapse" id="myNavbar">
+				    <ul class="nav navbar-nav navbar-right">
+				    	<li class="hidden"><a href="#page-top"></a></li>
+				    	<li><a class="page-scroll" href="#services"><span class="glyphicon glyphicon-link"></span> Services</a></li>
+				        <li><a class="page-scroll" href="#team"><span class="glyphicon glyphicon-user"></span> Team</a></li>
+				        <li><a class="page-scroll" href="#contact"><span class="glyphicon glyphicon-log-in"></span> Contact Us</a></li>
+				    </ul>
+			    </div>
+		  	</div>
+		</nav>
+
+		<!-- Header -->
+		<div class="container-fluid" style="padding-top:180px">
+            <div class="row">
+                <div class="col-xs-5">
+                    <h3 align="right"><span class="glyphicon glyphicon-search"></span> Find a doctor</h3>  
+                </div>
+                <div class="col-xs-5">
+                    <h3 align="center"><span class="glyphicon glyphicon-calendar"></span> Book Appointments</h3> 
+                </div>
+            </div> 
+		  	  <ul id="myTab" class="nav nav-tabs" style="padding-top:50px">
+			    <li class="active"><a href="#special" data-toggle="tab" style="font-family: Montserrat,Helvetica,Arial,sans-serif;font-weight: 700;">Speciality</a></li>
+			  	<li><a href="#doc" data-toggle="tab" style="font-family: Montserrat,Helvetica,Arial,sans-serif;font-weight: 700;">Doctor</a></li>
+			  </ul>    
+		</div>
+		<br/><br/>
+		<div id="myTabContent" class="tab-content" style="padding-left:15px">
+			<div class="tab-pane col-sm-12 fade in active" id="special">
+				<form role="form">
+			    	<div class="col-xs-4 form-group has-feedback">
+			      		<label class="sr-only" for="speciality">Speciality:</label>
+			      		<input type="text" class="form-control" id="speciality" placeholder="e.g. Dentist, Gyneocologist" autocomplete="off">
+			      		<span class="glyphicon glyphicon-th-list form-control-feedback"></span>
+		      		</div>
+			      	
+			      	<div class="col-xs-4 form-group has-feedback">
+			      		<label class="sr-only" for="area">Area:</label>
+			      		<input type="text" class="form-control" id="area" placeholder="e.g. Pink Square" >
+			      		<span class="glyphicon glyphicon-globe form-control-feedback"></span>
+				   	</div>
+
+				   	<button type="submit" class="btn btn-info" style="padding-left:-10px"><span class="glyphicon glyphicon-search"></span></button>
+				</form>
+			</div>
+			<div class="tab-pane col-sm-12 fade" id="doc">
+				<form role="form">
+
+			    	<div class="col-xs-4 form-group has-feedback">
+			      		<label class="sr-only" for="doctor">Doctor:</label>
+			      		<input type="text" class="form-control" id="doctor" placeholder="e.g. Dr. Manish Kumar">
+			      		<span class="glyphicon glyphicon-user form-control-feedback"></span>
+		      		</div> 
+
+				   	<button type="submit" class="btn btn-info" style="padding-left:-10px"><span class="glyphicon glyphicon-search"></span></button>
+				</form>
+			</div>
+		</div>
+		<!-- fixed bottom navbar -->
+		<nav class="navbar navbar-inverse navbar-fixed-bottom">
+		  <div class="container-fluid">
+		    <div class="navbar-header" style="line-height: 0px; height:10px;">
+		      <p class="navbar-brand" style="padding-top:1px; font-size:1em">&copy 2015, 102 HealthServices Pvt. Ltd. All Rights Reserved</p>
+		    </div>
+		  </div>
+		</nav>
+
+	<hr style="padding-top:380px">
+
+	<!-- Services Section -->
+    <section id="services" style="background-color:#e7e7e7">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Services</h2>
+                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary" style="color:grey"></i>
+                        <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">E-Commerce</h4>
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary" style="color:grey"></i>
+                        <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Responsive Design</h4>
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary" style="color:grey"></i>
+                        <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Web Security</h4>
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Team Section -->
+    <section id="team" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Our Amazing Team</h2>
+                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="img/team/1.jpg" class="img-responsive img-circle" alt="">
+                        <h4>Kay Garland</h4>
+                        <p class="text-muted">Lead Designer</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="img/team/2.jpg" class="img-responsive img-circle" alt="">
+                        <h4>Larry Parker</h4>
+                        <p class="text-muted">Lead Marketer</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="img/team/3.jpg" class="img-responsive img-circle" alt="">
+                        <h4>Diana Pertersen</h4>
+                        <p class="text-muted">Lead Developer</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Contact-->
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Contact Us</h2>
+                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <form name="sentMessage" id="contactForm" novalidate>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" class="form-control" placeholder="Your Phone *" id="phone" required data-validation-required-message="Please enter your phone number.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <textarea class="form-control" placeholder="Your Message *" id="message" required data-validation-required-message="Please enter a message."></textarea>
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="col-lg-12 text-center">
+                                <div id="success"></div>
+                                <button type="submit" class="btn btn-xl">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

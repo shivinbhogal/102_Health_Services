@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block body_block %}
+		<div class="container-fluid">
+  			<img src="{% static "images/logo.png" %}">
+		</div>
+        {% if specialities %}
+            <ul>
+                {% for speciality in specialities %}
+                <li><a href="{% url 'speciality' speciality.slug %}">{{ speciality.type }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <strong>There are no specialities present.</strong>
+        {% endif %}
+
+        <a href="/searchapp/about/">About</a><br />
+{% endblock %}

@@ -1,0 +1,9 @@
+        {% if specialities %}
+            <ul>
+                {% for speciality in specialities %}
+                <li><a href="{% url 'speciality' speciality.slug %}">{{ speciality.type }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <strong>There are no specialities present.</strong>
+        {% endif %}
